@@ -9,6 +9,7 @@ public class MainCircles extends JFrame {
     private static final int WINDOW_WIDTH = 800;
     private static final int WINDOW_HEIGHT = 600;
 
+
     Sprite[] sprites = new Sprite[10];
 
     public static void main(String[] args) {

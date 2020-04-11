@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebdcb027-6a43-4b82-ab18-01c7ca007246" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/_Java project/META-INF/_Java project.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geekbrains/com/MainCircles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geekbrains/com/MainCircles.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +82,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="605" y="149" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1586052690160" />
+    <state x="466" y="27" key="CommitChangelistDialog2" timestamp="1586575962893">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="466" y="27" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1586575962893" />
     <state width="1556" height="217" key="GridCell.Tab.0.bottom" timestamp="1586355837035">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -107,5 +110,13 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="501" y="254" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1586409817124" />
+    <state x="530" y="191" key="extract.method.dialog" timestamp="1586575943448">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="191" key="extract.method.dialog/0.0.1600.860@0.0.1600.860" timestamp="1586575943448" />
+    <state x="643" y="175" width="672" height="678" key="search.everywhere.popup" timestamp="1586575955216">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="643" y="175" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1586575955216" />
   </component>
 </project>
