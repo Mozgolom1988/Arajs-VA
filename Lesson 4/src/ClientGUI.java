@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ClientGUI extends JFrame implements ActionListener, Thread.UncaughtExceptionHandler, KeyListener{
+public class ClientGUI extends JFrame implements ActionListener, Thread.UncaughtExceptionHandler{
 
     private static final int WIDTH = 400;
     private static final int HEIGHT = 300;
@@ -63,7 +63,7 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         log.setEditable(false);
         cbAlwaysOnTop.addActionListener(this);
         btnSend.addActionListener(this);
-        tfMessage.addKeyListener(this);
+        tfMessage.addActionListener(this);
 
         panelTop.add(tfIPAddress);
         panelTop.add(tfPort);
@@ -87,7 +87,7 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         Object src = e.getSource();
         if (src == cbAlwaysOnTop) {
             setAlwaysOnTop(cbAlwaysOnTop.isSelected());
-        } else if (src == btnSend) {
+        } else if (src == btnSend || src ==tfMessage) {
             addMessageToLog();
         } else {
             throw new RuntimeException("Unknown source:" + src);
@@ -126,21 +126,4 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
 
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {}
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-        //Добавил проверку на источник, а то вдруг еще куда-нибудь привяжем клавиши
-        Object src = e.getSource();
-        if (src == tfMessage) {
-            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                addMessageToLog();
-            }
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {}
 }
