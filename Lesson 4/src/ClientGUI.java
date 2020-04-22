@@ -4,8 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class ClientGUI extends JFrame implements ActionListener, Thread.UncaughtExceptionHandler {
+public class ClientGUI extends JFrame implements ActionListener, Thread.UncaughtExceptionHandler{
 
     private static final int WIDTH = 400;
     private static final int HEIGHT = 300;
@@ -25,6 +33,9 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
     private final JButton btnSend = new JButton("Send");
 
     private final JList<String> userList = new JList<>();
+
+    private final SimpleDateFormat formatForDateNow = new SimpleDateFormat("hh:mm:ss");
+    private final SimpleDateFormat formatForDateToday = new SimpleDateFormat("yyyy-MM-dd");
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -51,6 +62,8 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         log.setWrapStyleWord(true);
         log.setEditable(false);
         cbAlwaysOnTop.addActionListener(this);
+        btnSend.addActionListener(this);
+        tfMessage.addActionListener(this);
 
         panelTop.add(tfIPAddress);
         panelTop.add(tfPort);
@@ -74,6 +87,8 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         Object src = e.getSource();
         if (src == cbAlwaysOnTop) {
             setAlwaysOnTop(cbAlwaysOnTop.isSelected());
+        } else if (src == btnSend || src ==tfMessage) {
+            addMessageToLog();
         } else {
             throw new RuntimeException("Unknown source:" + src);
         }
@@ -89,4 +104,26 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         JOptionPane.showMessageDialog(this, msg, "Exception", JOptionPane.ERROR_MESSAGE);
         System.exit(1);
     }
+
+    private void addMessageToLog() {
+        Date date = new Date();
+        String msg = formatForDateNow.format(date) + " " + tfLogin.getText() + ": " + tfMessage.getText();
+        log.setText(log.getText() + (log.getText().isEmpty() ? "" : "\n") + msg);
+        tfMessage.setText("");
+
+        //Начало записи лога в файл
+        String nameFile = "log" + formatForDateToday.format(date) + ".txt";
+
+        try(FileWriter writer = new FileWriter(nameFile, true))
+        {
+            writer.write(System.lineSeparator() + msg);
+            writer.flush();
+        }
+        catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+        //Окончание записи лога в файл
+
+    }
+
 }
