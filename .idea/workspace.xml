@@ -3,8 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3c31646d-4883-48d8-a4c8-a001387a71e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homeWork2/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/homeWork2/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Ball.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/GameCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/GameCanvas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Main$Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Main$Animal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Main$Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Main$Cat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Main$Dog.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Main$Dog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/MainCircles$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/MainCircles$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/MainCircles.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/MainCircles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/MyClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/MyClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Sprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson 1/out/production/_Java project/geekbrains/com/Sprite.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,12 +27,16 @@
   <component name="ProjectId" id="1a3qpYFLTGlq12NpzQWZpPP3PdJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/homeWork2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/network" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -38,14 +52,18 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="254" y="86" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586571851877">
+    <state x="254" y="86" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587558335022">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="254" y="86" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1586571851877" />
-    <state x="580" y="188" key="FileChooserDialogImpl" timestamp="1586571866154">
+    <state x="254" y="86" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.860@0.0.1600.860" timestamp="1587558335022" />
+    <state x="580" y="188" key="FileChooserDialogImpl" timestamp="1587559755621">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="188" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1586571866154" />
+    <state x="580" y="188" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1587559755621" />
+    <state x="280" y="3" key="SettingsEditor" timestamp="1587558403656">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="280" y="3" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1587558403656" />
     <state x="508" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1585974813891">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
