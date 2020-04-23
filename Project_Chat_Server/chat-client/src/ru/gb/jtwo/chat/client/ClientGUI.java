@@ -62,6 +62,7 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         tfMessage.addActionListener(this);
         btnSend.addActionListener(this);
         btnLogin.addActionListener(this);
+        btnDisconnect.addActionListener(this);
 
         panelTop.add(tfIPAddress);
         panelTop.add(tfPort);
@@ -72,6 +73,8 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         panelBottom.add(btnDisconnect, BorderLayout.WEST);
         panelBottom.add(tfMessage, BorderLayout.CENTER);
         panelBottom.add(btnSend, BorderLayout.EAST);
+
+        setVisiblePanel(false);
 
         add(scrUser, BorderLayout.EAST);
         add(scrLog, BorderLayout.CENTER);
@@ -89,19 +92,34 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
             sendMessage();
         } else if (src == btnLogin) {
             connect();
+        } else if (src == btnDisconnect) {
+            disconnect();
         } else {
             throw new RuntimeException("Unknown source:" + src);
         }
+    }
+
+    private void setVisiblePanel(boolean visibleBottom){
+        panelTop.setVisible(!visibleBottom);
+        panelBottom.setVisible(visibleBottom);
     }
 
     private void connect() {
         try {
             Socket socket = new Socket(tfIPAddress.getText(), Integer.parseInt(tfPort.getText()));
             socketThread = new SocketThread(this, "Client", socket);
+            setVisiblePanel(true);
         } catch (IOException e) {
             showException(Thread.currentThread(), e);
         }
     }
+
+    private void disconnect(){
+        socketThread.interrupt();
+        socketThread.close();
+        setVisiblePanel(false);
+    }
+
 
     private void sendMessage() {
         String msg = tfMessage.getText();
@@ -109,7 +127,7 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         if ("".equals(msg)) return;
         tfMessage.setText(null);
         tfMessage.requestFocusInWindow();
-        socketThread.sendMessage(msg);
+        socketThread.sendMessage(tfLogin.getText() + ": " + msg);
         //putLog(String.format("%s: %s", username, msg));
         //wrtMsgToLogFile(msg, username);
     }
@@ -173,6 +191,7 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
     @Override
     public void onSocketReady(SocketThread thread, Socket socket) {
         putLog("Ready");
+
     }
 
     @Override

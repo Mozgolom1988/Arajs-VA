@@ -7,10 +7,12 @@ import ru.gb.jtwo.network.SocketThreadListener;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Vector;
 
 public class ChatServer implements ServerSocketThreadListener, SocketThreadListener {
 
     ServerSocketThread server;
+    Vector connection;
 
     public void start(int port) {
         if (server != null && server.isAlive())
@@ -38,6 +40,7 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
     @Override
     public void onServerStarted(ServerSocketThread thread) {
         putLog("Server thread started");
+        connection = new Vector(10,5);
     }
 
     @Override
@@ -54,7 +57,7 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
     public void onSocketAccepted(ServerSocketThread thread, ServerSocket server, Socket socket) {
         putLog("Client connected");
         String name = "SocketThread " + socket.getInetAddress() + ":" + socket.getPort();
-        new SocketThread(this, name, socket);
+        connection.add(new SocketThread(this, name, socket));
     }
 
     @Override
@@ -66,6 +69,7 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
     @Override
     public void onServerStop(ServerSocketThread thread) {
         putLog("Server thread stopped");
+        connection.clear();
     }
 
     /**
@@ -79,6 +83,7 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
 
     @Override
     public void onSocketStop(SocketThread thread) {
+        connection.removeElement(thread);
         putLog("Socket stopped");
     }
 
@@ -89,11 +94,17 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
 
     @Override
     public void onReceiveString(SocketThread thread, Socket socket, String msg) {
-        thread.sendMessage("echo: " + msg);
+
+        for (Object current: connection) {
+            ((SocketThread)current).sendMessage(msg);
+        }
+
+        //thread.sendMessage("echo: " + msg);
     }
 
     @Override
     public void onSocketException(SocketThread thread, Throwable throwable) {
+        connection.removeElement(thread);
         throwable.printStackTrace();
     }
 }
