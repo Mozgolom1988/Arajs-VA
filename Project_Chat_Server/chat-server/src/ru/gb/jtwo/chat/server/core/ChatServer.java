@@ -114,7 +114,7 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
     }
 
     void handleAuthMessage(ClientThread client, String msg) {
-        sendToAllAuthorizedClients(msg);
+        sendToAllAuthorizedClients(Library.getTypeBroadcast(client.getNickname(),msg));
     }
 
     void handleNonAuthMessage(ClientThread client, String msg) {
