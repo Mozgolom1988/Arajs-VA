@@ -13,6 +13,9 @@ import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ClientGUI extends JFrame implements ActionListener, Thread.UncaughtExceptionHandler, SocketThreadListener {
 
@@ -36,6 +39,8 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
     private final JList<String> userList = new JList<>();
     private boolean shownIoErrors = false;
     private SocketThread socketThread;
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    private final Calendar calendar = Calendar.getInstance();
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -191,7 +196,21 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
 
     @Override
     public void onReceiveString(SocketThread thread, Socket socket, String msg) {
-        putLog(msg);
+
+        String[] arr = msg.split(Library.DELIMITER);
+        if(arr[0].equals("/auth_accept")){
+            putLog(String.format("Авторизация прошла успешно: %s", arr[1]));
+        } else  if(arr[0].equals("/auth_denied")){
+            putLog(String.format("Авторизация не удалась, попробуйте еще раз"));
+        } else  if(arr[0].equals("/bcast")){
+
+            Long a = Long.parseLong(arr[1]);
+            calendar.setTimeInMillis(a);
+
+            putLog(String.format("%s %s: %s", dateFormat.format(calendar.getTime()),arr[2],arr[3]));
+        }else {
+            putLog(msg);
+        }
     }
 
     @Override
